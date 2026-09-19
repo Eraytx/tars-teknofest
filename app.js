@@ -62,6 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const successModal = document.getElementById('successModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
 
+    // KVKK Modalı Elementleri
+    const kvkkModal = document.getElementById('kvkkModal');
+    const openKvkkModal = document.getElementById('openKvkkModal');
+    const closeKvkkBtn = document.getElementById('closeKvkkBtn');
+    const acceptKvkkModalBtn = document.getElementById('acceptKvkkModalBtn');
+    const kvkkConsent = document.getElementById('kvkkConsent');
+
     // Google Sheets Webhook URL
     const GOOGLE_SHEETS_WEBHOOK = 'https://script.google.com/macros/s/AKfycbyjxcAmiW8zqkVCQKuORsJVpeM-OQ3CcDk_nrpKmasvNy9WLt8vF47Yk-S7FqtVoG_s/exec';
 
@@ -208,6 +215,13 @@ document.addEventListener('DOMContentLoaded', () => {
             opencvExpStr = opencvVal;
         }
 
+        // KVKK Onay Kontrolü
+        if (kvkkConsent && !kvkkConsent.checked) {
+            alert('Lütfen devam etmek için KVKK Aydınlatma Metnini onaylayınız.');
+            kvkkConsent.focus();
+            return;
+        }
+
         const now = new Date();
         const dateStr = now.toLocaleDateString('tr-TR') + ' ' + now.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
 
@@ -270,7 +284,30 @@ document.addEventListener('DOMContentLoaded', () => {
         successModal.classList.remove('active');
     });
 
+    // 5. KVKK Modalı Dinleyicileri
+    if (openKvkkModal) {
+        openKvkkModal.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            kvkkModal.classList.add('active');
+        });
+    }
+
+    if (closeKvkkBtn) {
+        closeKvkkBtn.addEventListener('click', () => {
+            kvkkModal.classList.remove('active');
+        });
+    }
+
+    if (acceptKvkkModalBtn) {
+        acceptKvkkModalBtn.addEventListener('click', () => {
+            if (kvkkConsent) kvkkConsent.checked = true;
+            kvkkModal.classList.remove('active');
+        });
+    }
+
     window.addEventListener('click', (e) => {
         if (e.target === successModal) successModal.classList.remove('active');
+        if (e.target === kvkkModal) kvkkModal.classList.remove('active');
     });
 });

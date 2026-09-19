@@ -94,7 +94,7 @@
                         </div>
                         <div class="form-group">
                             <label for="phone">TELEFON <span class="req">*</span></label>
-                            <input type="tel" id="phone" name="phone" class="form-control" required placeholder="05XX XXX XX XX">
+                            <input type="tel" id="phone" name="phone" class="form-control" required placeholder="05XX XXX XX XX" pattern="[0-9\s\+\-\(\)]{10,16}" title="Lütfen geçerli bir telefon numarası giriniz">
                         </div>
                     </div>
 
@@ -374,6 +374,17 @@
                         <textarea id="experience" name="experience" class="form-control" rows="4" required placeholder="Daha önce yer aldığınız projeler, yarışma deneyimleriniz ve üstlendiğiniz görevler..."></textarea>
                     </div>
 
+                    <!-- KVKK Onay Kutusu -->
+                    <div class="form-group kvkk-group">
+                        <label class="checkbox-label kvkk-label">
+                            <input type="checkbox" id="kvkkConsent" name="kvkk_consent" required>
+                            <span class="custom-checkbox"></span>
+                            <span class="option-text">
+                                <a href="javascript:void(0)" id="openKvkkModal" class="kvkk-link">KVKK Aydınlatma Metni</a>'ni okudum, anladım ve kişisel verilerimin TARS Projesi başvuru süreci kapsamında işlenmesini kabul ediyorum. <span class="req">*</span>
+                            </span>
+                        </label>
+                    </div>
+
                     <button type="submit" id="submitBtn" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">
                         VERİLERİ İLET <i class="fa-solid fa-paper-plane"></i>
                     </button>
@@ -404,6 +415,36 @@
             <button type="button" class="btn-primary modal-btn" id="closeModalBtn">
                 TAMAM <i class="fa-solid fa-chevron-right"></i>
             </button>
+        </div>
+    </div>
+
+    <!-- KVKK Aydınlatma Metni Modalı -->
+    <div class="modal-overlay" id="kvkkModal">
+        <div class="modal-content kvkk-modal-content">
+            <div class="kvkk-header">
+                <h3 class="kvkk-title"><i class="fa-solid fa-shield-halved" style="color: var(--primary);"></i> KVKK AYDINLATMA METNİ</h3>
+                <button type="button" class="kvkk-close-btn" id="closeKvkkBtn">&times;</button>
+            </div>
+            <div class="kvkk-body">
+                <p><strong>6698 Sayılı Kişisel Verilerin Korunması Kanunu (KVKK) Kapsamında Bilgilendirme</strong></p>
+                
+                <h4>1. Veri Sorumlusu</h4>
+                <p>TARS İnsansız Kara Aracı Proje Ekibi (TEKNOFEST 2027) olarak, bu başvuru formu aracılığıyla sağladığınız kişisel verilerinizin gizliliğine ve güvenliğine azami hassasiyet göstermekteyiz.</p>
+
+                <h4>2. Kişisel Verilerin İşlenme Amacı</h4>
+                <p>Toplanan ad, soyad, e-posta, telefon, bölüm/sınıf, teknik yetkinlik ve yarışma/proje deneyimi verileriniz; yalnızca TARS Takımı aday değerlendirme, departman yetkinlik eşleştirmesi ve mülakat iletişimi süreçlerinin yürütülmesi amacıyla sınırlı olarak işlenmektedir.</p>
+
+                <h4>3. Verilerin Güvenliği ve Aktarımı</h4>
+                <p>Paylaştığınız kişisel veriler; hiçbir surette üçüncü şahıslara, ticari kuruluşlara veya ilgisiz taraflara satılmaz, kiralanmaz ya da aktarılmaz. Veriler yalnızca proje koordinasyon ve değerlendirme ekibi tarafından incelenir.</p>
+
+                <h4>4. Saklama ve İmha</h4>
+                <p>Toplanan veriler, TEKNOFEST 2027 başvuru ve takım oluşturma dönemi boyunca güvenli ortamda muhafaza edilir. Süreç nihayete erdiğinde yasal mevzuata uygun şekilde arşivlenir veya silinir.</p>
+            </div>
+            <div class="kvkk-footer">
+                <button type="button" class="btn-primary modal-btn" id="acceptKvkkModalBtn">
+                    OKUDUM, KABUL EDİYORUM <i class="fa-solid fa-check"></i>
+                </button>
+            </div>
         </div>
     </div>
 

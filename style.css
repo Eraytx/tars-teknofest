@@ -664,6 +664,108 @@ footer p {
     justify-content: center;
 }
 
+/* KVKK Onay Kutusu ve Linki */
+.kvkk-group {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.kvkk-label {
+    align-items: flex-start !important;
+    font-size: 0.95rem !important;
+    line-height: 1.5;
+    padding: 8px 12px !important;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--accent) !important;
+}
+
+.kvkk-link {
+    color: var(--primary);
+    text-decoration: underline;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.kvkk-link:hover {
+    color: var(--primary-hover);
+    text-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* KVKK Detay Modalı */
+.kvkk-modal-content {
+    max-width: 650px !important;
+    text-align: left !important;
+    padding: 30px 35px !important;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.kvkk-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.kvkk-title {
+    font-size: 1.25rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.kvkk-close-btn {
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 1.6rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: var(--transition);
+}
+
+.kvkk-close-btn:hover {
+    color: var(--primary);
+}
+
+.kvkk-body {
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 20px;
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.kvkk-body p {
+    margin-bottom: 15px;
+}
+
+.kvkk-body h4 {
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+
+.kvkk-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.kvkk-body::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 3px;
+}
+
+.kvkk-body::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
 /* Animasyonlar & Responsive */
 @keyframes fadeIn {
     from { opacity: 0; }
