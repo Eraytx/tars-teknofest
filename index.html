@@ -22,9 +22,6 @@
             <div class="nav-links">
                 <a href="#architecture" class="nav-link">SİSTEM MİMARİSİ</a>
                 <a href="#apply" class="nav-link">BAŞVURU</a>
-                <button type="button" class="btn-nav-admin" id="openAdminNavBtn">
-                    <i class="fa-solid fa-table"></i> BAŞVURULAR & EXCEL
-                </button>
             </div>
         </div>
     </nav>
@@ -212,69 +209,6 @@
             <button type="button" class="btn-primary modal-btn" id="closeModalBtn">
                 TAMAM <i class="fa-solid fa-chevron-right"></i>
             </button>
-        </div>
-    </div>
-
-    <!-- Sabit Admin / Excel Butonu (Sağ Altta Kolay Erişim) -->
-    <button type="button" class="admin-badge-btn" id="openAdminFloatingBtn" title="Gelen başvuruları görüntüle ve Excel olarak indir">
-        <i class="fa-solid fa-file-excel"></i>
-        <span>BAŞVURULAR (EXCEL)</span>
-        <span class="applicant-counter" id="applicantCountBadge">0</span>
-    </button>
-
-    <!-- Yönetici & Excel Dışa Aktarma Modalı -->
-    <div class="modal-overlay" id="adminModal">
-        <div class="admin-modal-content">
-            <div class="admin-modal-header">
-                <h3><i class="fa-solid fa-shield-halved" style="color: var(--primary);"></i> Başvuru Yönetimi & Excel Dışa Aktarma</h3>
-                <button type="button" class="admin-modal-close" id="closeAdminModalBtn">&times;</button>
-            </div>
-            <div class="admin-modal-body">
-                <div class="admin-toolbar">
-                    <div>
-                        <strong style="color: #fff; font-size: 1.1rem;">Toplam Başvuru: <span id="totalApplicantsCount" style="color: var(--primary);">0</span></strong>
-                        <p style="color: #888; font-size: 0.85rem; margin-top: 2px;">Tüm başvurular bu tarayıcıda yedeklenir ve tek tıkla Excel'e aktarılır.</p>
-                    </div>
-                    <div style="display: flex; gap: 10px; align-items: center;">
-                        <button type="button" class="btn-excel" id="exportExcelBtn">
-                            <i class="fa-solid fa-file-excel"></i> Excel (.xlsx/.csv) Olarak İndir
-                        </button>
-                        <button type="button" class="btn-clear" id="clearDataBtn" title="Test verilerini sıfırla">
-                            <i class="fa-solid fa-trash-can"></i> Temizle
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Başvuru Tablosu -->
-                <div class="table-responsive">
-                    <table class="admin-table">
-                        <thead>
-                            <tr>
-                                <th>TARİH</th>
-                                <th>AD SOYAD</th>
-                                <th>DEPARTMAN</th>
-                                <th>CAD YETKİNLİKLERİ</th>
-                                <th>ATÖLYE BİLGİSİ</th>
-                                <th>İLETİŞİM</th>
-                                <th>ÜNİVERSİTE</th>
-                            </tr>
-                        </thead>
-                        <tbody id="applicantTableBody">
-                            <!-- JS ile doldurulacak -->
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Google Sheets Webhook Entegrasyon Kutusu -->
-                <div class="webhook-settings-box">
-                    <h4><i class="fa-brands fa-google-drive" style="color: #34A853;"></i> Canlı Google E-Tablo (Google Sheets) Entegrasyonu</h4>
-                    <p>Formun her gönderildiğinde doğrudan sizin Google E-Tablonuza anında yeni satır yazması için Google Apps Script Web App URL'nizi buraya girebilirsiniz:</p>
-                    <div class="webhook-input-row">
-                        <input type="url" id="googleSheetsWebhookInput" class="form-control" style="padding: 10px 14px; font-size: 0.95rem;" placeholder="https://script.google.com/macros/s/.../exec">
-                        <button type="button" class="btn-primary" id="saveWebhookBtn" style="padding: 10px 20px; font-size: 0.85rem; white-space: nowrap;">KAYDET</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
