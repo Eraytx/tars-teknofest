@@ -18,39 +18,37 @@ function doPost(e) {
   lock.tryLock(10000);
 
   try {
-    // Doğrudan tablonuzu açar
     var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
     var sheet = ss.getSheets()[0];
     
-    // Eğer tablo boşsa başlıkları otomatik ekle ve biçimlendir
+    // Eğer tablo boşsa veya başlıkları güncellemek gerekirse
+    var headers = [
+      "Başvuru ID",
+      "Tarih & Saat",
+      "Ad Soyad",
+      "E-Posta",
+      "Telefon",
+      "Bölüm & Sınıf",
+      "Hedeflenen Departman",
+      "CAD Yetkinlikleri (Mekanik)",
+      "Atölye / İmalat Deneyimi",
+      "PCB Tasarım Deneyimi",
+      "Mikrodenetleyici Deneyimi",
+      "Güç Elektroniği Deneyimi",
+      "Programlama Dilleri",
+      "ROS2 Deneyimi",
+      "OpenCV / Görüntü İşleme / Derin Öğrenme",
+      "Proje & Yarışma Deneyimi (TEKNOFEST vb.)"
+    ];
+
     if (sheet.getLastRow() === 0) {
-      var headers = [
-        "Başvuru ID",
-        "Tarih & Saat",
-        "Ad Soyad",
-        "E-Posta",
-        "Telefon",
-        "Üniversite & Bölüm",
-        "Hedeflenen Departman",
-        "CAD Yetkinlikleri (Mekanik)",
-        "Atölye / İmalat Deneyimi",
-        "Teknik Yetkinlikler ve Projeler"
-      ];
-      
       sheet.appendRow(headers);
-      
-      // Başlık satırını kırmızı/beyaz olarak biçimlendir
       var headerRange = sheet.getRange(1, 1, 1, headers.length);
       headerRange.setBackground("#B71C1C"); // Koyu Kırmızı
       headerRange.setFontColor("#FFFFFF"); // Beyaz Yazı
       headerRange.setFontWeight("bold");
       headerRange.setHorizontalAlignment("center");
       sheet.setFrozenRows(1);
-
-      // Sütun genişliklerini otomatik ayarla
-      for (var col = 1; col <= headers.length; col++) {
-        sheet.autoResizeColumn(col);
-      }
     }
 
     var data = JSON.parse(e.postData.contents);
@@ -61,17 +59,23 @@ function doPost(e) {
       data.fullname || "",
       data.email || "",
       data.phone || "",
-      data.university || "",
+      data.university || "", // Bölüm & Sınıf
       data.department || "",
       data.cad_experience || "-",
       data.workshop_experience || "-",
+      data.pcb_experience || "-",
+      data.mcu_experience || "-",
+      data.power_experience || "-",
+      data.programming_languages || "-",
+      data.ros2_experience || "-",
+      data.opencv_experience || "-",
       data.experience || ""
     ];
 
     sheet.appendRow(row);
 
     return ContentService
-      .createTextOutput(JSON.stringify({ result: "success", message: "Başvuru başarıyla Google E-Tabloya eklendi!" }))
+      .createTextOutput(JSON.stringify({ result: "success" }))
       .setMimeType(ContentService.MimeType.JSON);
 
   } catch (error) {

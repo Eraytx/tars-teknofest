@@ -407,8 +407,60 @@ textarea.form-control {
     font-size: 0.75rem;
     font-weight: 700;
     padding: 4px 10px;
-    border-radius: 3px;
-    border: 1px solid rgba(255, 42, 42, 0.4);
+.dynamic-box-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: -15px;
+    margin-bottom: 20px;
+}
+
+/* Seviye Seçim Butonları (Yok, Temel, Orta, İleri) */
+.level-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.level-option {
+    background: var(--bg-dark);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    padding: 12px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    font-size: 1.05rem;
+    color: #ccc;
+}
+
+.level-option:hover {
+    border-color: var(--primary);
+    background: rgba(255, 42, 42, 0.05);
+    color: #fff;
+}
+
+.level-option input[type="radio"] {
+    display: none;
+}
+
+.level-option.selected,
+.level-option:has(input[type="radio"]:checked) {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+@media (max-width: 600px) {
+    .level-selector {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* Dinamik Checkbox Listesi */

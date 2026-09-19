@@ -99,33 +99,44 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="university">ÜNİVERSİTE & BÖLÜM <span class="req">*</span></label>
-                        <input type="text" id="university" name="university" class="form-control" required placeholder="Örn: Türk Hava Kurumu Üniversitesi - Uçak Bakım ve Onarım">
+                        <label for="university">BÖLÜM & SINIF <span class="req">*</span></label>
+                        <input type="text" id="university" name="university" class="form-control" required placeholder="Örn: Havacılık ve Uzay Mühendisliği - 3. Sınıf">
                     </div>
 
                     <div class="form-group">
                         <label for="department">HEDEFLENEN DEPARTMAN <span class="req">*</span></label>
                         <select id="department" name="department" class="form-control" required>
                             <option value="" disabled selected>Lütfen bir alan seçin...</option>
-                            <option value="Mekanik Tasarım">Mekanik Tasarım ve Analiz</option>
-                            <option value="Yazılım ve Otonomi">Yazılım & Otonom Sistemler</option>
-                            <option value="Elektronik ve Donanım">Elektronik & Donanım (BMS/Sürücü)</option>
-                            <option value="Medya">Medya, 3D Render & Kurumsal İletişim</option>
+                            <optgroup label="Mekanik">
+                                <option value="Mekanik — Motor, Süspansiyon ve Palet">Mekanik — Motor, Süspansiyon ve Palet</option>
+                                <option value="Mekanik — Şasi ve Yapısal Tasarım">Mekanik — Şasi ve Yapısal Tasarım</option>
+                                <option value="Mekanik — Üretim, Montaj ve Sızdırmazlık">Mekanik — Üretim, Montaj ve Sızdırmazlık</option>
+                            </optgroup>
+                            <optgroup label="Elektrik Elektronik">
+                                <option value="Elektrik Elektronik — Kontrol ve Haberleşme">Elektrik Elektronik — Kontrol ve Haberleşme</option>
+                                <option value="Elektrik Elektronik — Güç Sistemi">Elektrik Elektronik — Güç Sistemi</option>
+                                <option value="Elektrik Elektronik — Sensör ve Otomasyon">Elektrik Elektronik — Sensör ve Otomasyon</option>
+                            </optgroup>
+                            <optgroup label="Yazılım">
+                                <option value="Yazılım — Otonomi ve Navigasyon">Yazılım — Otonomi ve Navigasyon</option>
+                                <option value="Yazılım — Görüntü İşleme, Atış Yazılımı ve Haberleşme">Yazılım — Görüntü İşleme, Atış Yazılımı ve Haberleşme</option>
+                            </optgroup>
                         </select>
                     </div>
 
-                    <!-- ============================================== -->
-                    <!-- DİNAMİK ALAN: MEKANİK - TEKNİK YETKİNLİKLER -->
-                    <!-- ============================================== -->
+                    <!-- ==================================================== -->
+                    <!-- 1. DİNAMİK ALAN: MEKANİK - TEKNİK YETKİNLİKLER      -->
+                    <!-- ==================================================== -->
                     <div class="dynamic-department-box" id="mechanicDynamicBox">
                         <div class="dynamic-box-header">
                             <div class="dynamic-box-title">
                                 <i class="fa-solid fa-screwdriver-wrench"></i> Mekanik - Teknik Yetkinlikler
                             </div>
-                            <span class="dynamic-box-badge">ÖZEL BÖLÜM</span>
+                            <span class="dynamic-box-badge">MEKANİK ÖZEL</span>
                         </div>
+                        <p class="dynamic-box-desc">Mekanik departmanına yönelik teknik tecrübeleriniz.</p>
 
-                        <!-- CAD Programı Deneyimi Sorusı -->
+                        <!-- CAD Programı Deneyimi -->
                         <div class="form-group">
                             <label>CAD PROGRAMI DENEYİMİNİZ <span class="req">*</span></label>
                             <div class="checkbox-group" id="cadCheckboxGroup">
@@ -153,7 +164,7 @@
                                     <span class="option-text">Yok</span>
                                 </label>
 
-                                <label class="checkbox-label" id="cadOtherLabel">
+                                <label class="checkbox-label">
                                     <input type="checkbox" name="cad_experience" value="Diğer" id="cadOtherCheckbox">
                                     <span class="custom-checkbox"></span>
                                     <span class="option-text">Diğer:</span>
@@ -165,18 +176,202 @@
                             </div>
                         </div>
 
-                        <!-- Atölye / İmalat Deneyimi Sorusu -->
+                        <!-- Atölye / İmalat Deneyimi -->
                         <div class="form-group" style="margin-bottom: 0;">
                             <label for="workshopExp">ATÖLYE/İMALAT DENEYİMİNİZ VAR MI? (CNC, 3D BASKI, KAYNAK VB.)</label>
                             <textarea id="workshopExp" name="workshopExp" class="form-control" rows="3" placeholder="Hangi tezgahlarda veya imalat yöntemlerinde tecrübeniz var? Detaylandırabilirsiniz..."></textarea>
                         </div>
                     </div>
-                    <!-- ============================================== -->
 
-                    <!-- Genel Deneyim Alanı -->
+                    <!-- ==================================================== -->
+                    <!-- 2. DİNAMİK ALAN: ELEKTRİK ELEKTRONİK - YETKİNLİKLER -->
+                    <!-- ==================================================== -->
+                    <div class="dynamic-department-box" id="electronicsDynamicBox">
+                        <div class="dynamic-box-header">
+                            <div class="dynamic-box-title">
+                                <i class="fa-solid fa-microchip"></i> Elektrik Elektronik - Teknik Yetkinlikler
+                            </div>
+                            <span class="dynamic-box-badge">ELEKTRONİK ÖZEL</span>
+                        </div>
+                        <p class="dynamic-box-desc">Açıklama (isteğe bağlı)</p>
+
+                        <!-- PCB Tasarım Deneyimi -->
+                        <div class="form-group">
+                            <label>PCB TASARIM DENEYİMİNİZ <span class="req">*</span></label>
+                            <div class="checkbox-group" id="pcbCheckboxGroup">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="pcb_experience" value="KiCad">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">KiCad</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="pcb_experience" value="Altium">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">Altium</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="pcb_experience" value="Eagle">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">Eagle</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="pcb_experience" value="Yok" id="pcbNoneCheckbox">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">Yok</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="pcb_experience" value="Diğer" id="pcbOtherCheckbox">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">Diğer:</span>
+                                </label>
+                                <div class="other-input-wrap" id="pcbOtherInputWrap">
+                                    <input type="text" id="pcbOtherText" class="other-input" placeholder="Diğer PCB tasarım programını yazınız (örn: Proteus, EasyEDA)...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mikrodenetleyici Deneyimi -->
+                        <div class="form-group">
+                            <label>MİKRODENETLEYİCİ DENEYİMİNİZ <span class="req">*</span></label>
+                            <div class="checkbox-group" id="mcuCheckboxGroup">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="mcu_experience" value="STM32">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">STM32</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="mcu_experience" value="Arduino">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">Arduino</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="mcu_experience" value="ESP32">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">ESP32</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="mcu_experience" value="Raspberry Pi">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">Raspberry Pi</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="mcu_experience" value="Yok" id="mcuNoneCheckbox">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">Yok</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="mcu_experience" value="Diğer" id="mcuOtherCheckbox">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">Diğer:</span>
+                                </label>
+                                <div class="other-input-wrap" id="mcuOtherInputWrap">
+                                    <input type="text" id="mcuOtherText" class="other-input" placeholder="Diğer mikrodenetleyici veya geliştirme kartlarını yazınız (örn: PIC, Teensy)...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Güç Elektroniği Deneyimi -->
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label>GÜÇ ELEKTRONİĞİ DENEYİMİNİZ <span class="req">*</span></label>
+                            <div class="level-selector" id="powerExpSelector">
+                                <label class="level-option">
+                                    <input type="radio" name="power_experience" value="Yok">
+                                    <span>Yok</span>
+                                </label>
+                                <label class="level-option">
+                                    <input type="radio" name="power_experience" value="Temel">
+                                    <span>Temel</span>
+                                </label>
+                                <label class="level-option">
+                                    <input type="radio" name="power_experience" value="Orta">
+                                    <span>Orta</span>
+                                </label>
+                                <label class="level-option">
+                                    <input type="radio" name="power_experience" value="İleri">
+                                    <span>İleri</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================================================== -->
+                    <!-- 3. DİNAMİK ALAN: YAZILIM - TEKNİK YETKİNLİKLER      -->
+                    <!-- ==================================================== -->
+                    <div class="dynamic-department-box" id="softwareDynamicBox">
+                        <div class="dynamic-box-header">
+                            <div class="dynamic-box-title">
+                                <i class="fa-solid fa-code"></i> Yazılım - Teknik Yetkinlikler
+                            </div>
+                            <span class="dynamic-box-badge">YAZILIM ÖZEL</span>
+                        </div>
+                        <p class="dynamic-box-desc">Açıklama (isteğe bağlı)</p>
+
+                        <!-- Programlama Dilleri -->
+                        <div class="form-group">
+                            <label>PROGRAMLAMA DİLLERİ <span class="req">*</span></label>
+                            <div class="checkbox-group" id="progLangCheckboxGroup">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="programming_languages" value="Python">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">Python</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="programming_languages" value="C++">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">C++</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="programming_languages" value="C">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">C</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="programming_languages" value="Diğer" id="progLangOtherCheckbox">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">Diğer:</span>
+                                </label>
+                                <div class="other-input-wrap" id="progLangOtherInputWrap">
+                                    <input type="text" id="progLangOtherText" class="other-input" placeholder="Kullandığınız diğer yazılım dillerini yazınız (örn: Rust, Java, C#)...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ROS2 Deneyimi -->
+                        <div class="form-group">
+                            <label>ROS2 DENEYİMİNİZ VAR MI? <span class="req">*</span></label>
+                            <div class="level-selector" id="ros2Selector">
+                                <label class="level-option">
+                                    <input type="radio" name="ros2_experience" value="Yok">
+                                    <span>Yok</span>
+                                </label>
+                                <label class="level-option">
+                                    <input type="radio" name="ros2_experience" value="Temel">
+                                    <span>Temel</span>
+                                </label>
+                                <label class="level-option">
+                                    <input type="radio" name="ros2_experience" value="Orta">
+                                    <span>Orta</span>
+                                </label>
+                                <label class="level-option">
+                                    <input type="radio" name="ros2_experience" value="İleri">
+                                    <span>İleri</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- OpenCV / Görüntü İşleme / Derin Öğrenme -->
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="opencvExp">OPENCV VEYA GÖRÜNTÜ İŞLEME / DERİN ÖĞRENME DENEYİMİNİZ VAR MI? KISACA BAHSEDİNİZ <span class="req">*</span></label>
+                            <textarea id="opencvExp" name="opencvExp" class="form-control" rows="3" placeholder="Hangi kütüphanelerle çalıştınız? (OpenCV, YOLO, PyTorch vb.) Yaptığınız projelerden bahsediniz..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- ==================================================== -->
+                    <!-- Genel Proje / Yarışma Deneyimi Alanı                 -->
+                    <!-- ==================================================== -->
                     <div class="form-group">
-                        <label for="experience">TEKNİK YETKİNLİKLER VE PROJELER <span class="req">*</span></label>
-                        <textarea id="experience" name="experience" class="form-control" rows="5" required placeholder="Daha önce neler yaptın? Yetkin olduğun programlar ve diller neler? Linklerini (GitHub, LinkedIn) buraya ekleyebilirsin..."></textarea>
+                        <label for="experience">BU ALANDA DAHA ÖNCE PROJE/YARIŞMA DENEYİMİNİZ OLDU MU? GÖREVİNİZİ KISACA AÇIKLAYINIZ (TEKNOFEST, KULÜP PROJELERİ VB.) <span class="req">*</span></label>
+                        <textarea id="experience" name="experience" class="form-control" rows="4" required placeholder="Daha önce yer aldığınız projeler, yarışma deneyimleriniz ve üstlendiğiniz görevler..."></textarea>
                     </div>
 
                     <button type="submit" id="submitBtn" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">
