@@ -1,0 +1,875 @@
+:root {
+    --primary: #FF2A2A; /* Teknofest Kırmızısı */
+    --primary-hover: #ff4d4d;
+    --primary-glow: rgba(255, 42, 42, 0.4);
+    --bg-dark: #050505;
+    --bg-card: #121212;
+    --bg-card-hover: #181818;
+    --text-main: #E0E0E0;
+    --text-muted: #888888;
+    --accent: #2A2A2A;
+    --border-color: #222222;
+    --success: #00ff88;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .logo {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Navbar --- */
+nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 30px 0;
+    z-index: 10;
+}
+
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 2px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo span {
+    color: var(--primary);
+    animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-link {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.btn-nav-admin {
+    background: rgba(255, 42, 42, 0.1);
+    border: 1px solid var(--primary);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-nav-admin:hover {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+/* --- Hero Section --- */
+header {
+    height: 100vh;
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.95)), 
+                url('https://images.unsplash.com/photo-1614064500918-028c2c7d91de?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+    border-bottom: 2px solid var(--primary);
+}
+
+.hero-content {
+    text-align: left;
+    z-index: 2;
+    max-width: 720px;
+    animation: fadeIn 1s ease-out;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(255, 42, 42, 0.12);
+    color: var(--primary);
+    padding: 6px 18px;
+    border: 1px solid var(--primary);
+    border-radius: 50px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(255, 42, 42, 0.2);
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    line-height: 1.1;
+    text-shadow: 0 0 25px rgba(255, 42, 42, 0.35);
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.btn-primary {
+    background: transparent;
+    color: var(--text-main);
+    padding: 15px 40px;
+    border: 2px solid var(--primary);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: var(--transition);
+    box-shadow: 0 0 15px rgba(255, 42, 42, 0.15);
+    border-radius: 2px;
+}
+
+.btn-primary:hover {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 0 30px rgba(255, 42, 42, 0.6);
+    transform: translateY(-2px);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* --- Genel Section Yapısı --- */
+.section {
+    padding: 100px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.section-title span {
+    color: var(--primary);
+}
+
+/* --- Sistem Mimarisi --- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: var(--bg-card);
+    border: 1px solid var(--accent);
+    padding: 45px 35px;
+    border-radius: 8px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: var(--primary);
+    transition: height 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background: var(--bg-card-hover);
+}
+
+.feature-card:hover::before {
+    height: 100%;
+}
+
+.feature-icon {
+    font-size: 2.6rem;
+    color: var(--primary);
+    margin-bottom: 25px;
+    transition: var(--transition);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+}
+
+.feature-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* --- Başvuru Formu Bölümü --- */
+.apply-section {
+    background: #0a0a0a;
+    border-top: 1px solid var(--accent);
+    border-bottom: 1px solid var(--accent);
+    position: relative;
+}
+
+.form-container {
+    background: var(--bg-card);
+    padding: 50px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+    border-top: 1px solid var(--accent);
+    border-right: 1px solid var(--accent);
+    border-bottom: 1px solid var(--accent);
+    max-width: 840px;
+    margin: 0 auto;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #ccc;
+    letter-spacing: 1px;
+    font-size: 0.95rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+}
+
+.form-group label .req {
+    color: var(--primary);
+    margin-left: 3px;
+}
+
+.form-control {
+    width: 100%;
+    background: var(--bg-dark);
+    border: 1px solid var(--accent);
+    padding: 15px;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(255, 42, 42, 0.2);
+}
+
+select.form-control {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF2A2A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+    padding-right: 45px;
+}
+
+select.form-control option {
+    background-color: var(--bg-card);
+    color: #fff;
+    padding: 10px;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* --- DİNAMİK ALAN (Mekanik & Departman Özel Bölümleri) --- */
+.dynamic-department-box {
+    display: none;
+    background: rgba(255, 42, 42, 0.03);
+    border: 1px solid rgba(255, 42, 42, 0.3);
+    border-radius: 6px;
+    padding: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dynamic-department-box.active {
+    display: block;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dynamic-box-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 42, 42, 0.2);
+}
+
+.dynamic-box-title {
+    font-size: 1.15rem;
+    color: #fff;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dynamic-box-title i {
+    color: var(--primary);
+}
+
+.dynamic-box-badge {
+    background: rgba(255, 42, 42, 0.2);
+    color: var(--primary);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 3px;
+    border: 1px solid rgba(255, 42, 42, 0.4);
+}
+
+/* Dinamik Checkbox Listesi */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #ddd;
+    user-select: none;
+    transition: var(--transition);
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+}
+
+.checkbox-label:hover {
+    background: rgba(255, 255, 255, 0.03);
+    color: #fff;
+    border-color: rgba(255, 42, 42, 0.2);
+}
+
+/* Özel Checkbox Görünümü */
+.custom-checkbox {
+    width: 20px;
+    height: 20px;
+    background: var(--bg-dark);
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.checkbox-label input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .custom-checkbox {
+    background: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.checkbox-label input[type="checkbox"]:checked + .custom-checkbox::after {
+    content: '✓';
+    color: #fff;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.checkbox-label input[type="checkbox"]:checked ~ span.option-text {
+    color: #fff;
+    font-weight: 600;
+}
+
+.other-input-wrap {
+    margin-top: 8px;
+    margin-left: 32px;
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.other-input-wrap.active {
+    display: block;
+}
+
+.other-input {
+    background: var(--bg-dark);
+    border: 1px solid var(--accent);
+    border-bottom: 2px solid var(--primary);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 4px;
+    width: 100%;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.other-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* --- Footer --- */
+footer {
+    background: var(--bg-dark);
+    padding: 50px 0;
+    text-align: center;
+    border-top: 2px solid var(--primary);
+}
+
+footer .logo {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+footer p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-top: 8px;
+}
+
+.footer-credits {
+    font-size: 0.9rem !important;
+    opacity: 0.8;
+}
+
+/* --- Başarı & Bilgi Bildirim Modalı --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 40px rgba(255, 42, 42, 0.3);
+    border-radius: 8px;
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-icon-wrap {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(255, 42, 42, 0.1);
+    border: 2px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2rem;
+    color: var(--primary);
+    box-shadow: 0 0 20px rgba(255, 42, 42, 0.3);
+}
+
+.modal-title {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.modal-desc {
+    color: #bbb;
+    font-size: 1.15rem;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.modal-btn {
+    width: 100%;
+    justify-content: center;
+}
+
+/* --- Yönetici / Excel İndirme Çekmecesi & Modalı --- */
+.admin-badge-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #111;
+    border: 1px solid var(--primary);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 42, 42, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.admin-badge-btn:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(255, 42, 42, 0.5);
+}
+
+.applicant-counter {
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 900;
+}
+
+.admin-badge-btn:hover .applicant-counter {
+    background: #000;
+    color: #fff;
+}
+
+/* Admin Modalı */
+.admin-modal-content {
+    background: var(--bg-card);
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 50px rgba(0,0,0,0.9);
+    border-radius: 8px;
+    width: 95%;
+    max-width: 1000px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+}
+
+.admin-modal-header {
+    background: #181818;
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--accent);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-modal-header h3 {
+    font-size: 1.3rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-modal-close {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.admin-modal-close:hover {
+    color: var(--primary);
+}
+
+.admin-modal-body {
+    padding: 25px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.admin-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid var(--accent);
+}
+
+.btn-excel {
+    background: #107C41; /* Excel Yeşili */
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.btn-excel:hover {
+    background: #0e6b37;
+    box-shadow: 0 0 15px rgba(16, 124, 65, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-clear {
+    background: transparent;
+    color: #ff4d4d;
+    border: 1px solid #ff4d4d;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-clear:hover {
+    background: rgba(255, 77, 77, 0.1);
+}
+
+.table-responsive {
+    overflow-x: auto;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+.admin-table th {
+    background: #181818;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    padding: 12px 16px;
+    border-bottom: 2px solid var(--primary);
+    white-space: nowrap;
+}
+
+.admin-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #222;
+    color: #ccc;
+    vertical-align: top;
+}
+
+.admin-table tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: var(--accent);
+}
+
+.tag-badge {
+    background: rgba(255, 42, 42, 0.15);
+    color: #ff6b6b;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+/* Webhook ayar kutusu */
+.webhook-settings-box {
+    margin-top: 20px;
+    background: #0d0d0d;
+    border: 1px solid var(--accent);
+    padding: 18px;
+    border-radius: 6px;
+}
+
+.webhook-settings-box h4 {
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.webhook-settings-box p {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 12px;
+}
+
+.webhook-input-row {
+    display: flex;
+    gap: 10px;
+}
+
+/* Animasyonlar & Responsive */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 992px) {
+    .hero-title { font-size: 3.5rem; }
+    .features-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.8rem; }
+    .hero-subtitle { font-size: 1.15rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .form-container { padding: 30px 20px; }
+    .nav-links { display: none; }
+    .admin-badge-btn { bottom: 15px; right: 15px; padding: 10px 16px; font-size: 0.8rem; }
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARS İnsansız Kara Aracı | TEKNOFEST 2026</title>
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigasyon Çubuğu -->
+    <nav>
+        <div class="container nav-inner">
+            <a href="#" class="logo">TARS<span>_</span></a>
+            <div class="nav-links">
+                <a href="#architecture" class="nav-link">SİSTEM MİMARİSİ</a>
+                <a href="#apply" class="nav-link">BAŞVURU</a>
+                <button type="button" class="btn-nav-admin" id="openAdminNavBtn">
+                    <i class="fa-solid fa-table"></i> BAŞVURULAR & EXCEL
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Bölümü -->
+    <header>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">TEKNOFEST 2026 PROJESİ</div>
+                <h1 class="hero-title">SINIRLARI<br>ZORLA.</h1>
+                <p class="hero-subtitle">Mekanik kusursuzluk ve otonom zekanın birleşimi. Nokta dönüşlü, monokok gövdeli insansız kara aracımız TARS'ı geliştiriyoruz. Ekibe katıl, geleceği tasarla.</p>
+                <a href="#apply" class="btn-primary">
+                    SİSTEME GİRİŞ YAP <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sistem Mimarisi Bölümü -->
+    <section class="section" id="architecture">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">SİSTEM <span>MİMARİSİ</span></h2>
+                <p style="color: var(--text-muted); font-size: 1.2rem;">Aradığımız yetkinlikler ve odaklandığımız departmanlar.</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Mekanik -->
+                <div class="feature-card">
+                    <i class="fa-solid fa-gear feature-icon"></i>
+                    <h3>MEKANİK & TASARIM</h3>
+                    <p>Monokok şasi mukavemet analizleri, skid steering (nokta dönüş) aktarma organları, diferansiyel ve süspansiyon sistemlerinin CAD tasarımı.</p>
+                </div>
+                <!-- Donanım -->
+                <div class="feature-card">
+                    <i class="fa-solid fa-microchip feature-icon"></i>
+                    <h3>DONANIM & GÜÇ</h3>
+                    <p>Özel motor sürücü tasarımı, Batarya Yönetim Sistemleri (BMS), güç dağıtımı, kablolama mimarisi ve mikrodenetleyici entegrasyonu.</p>
+                </div>
+                <!-- Yazılım -->
+                <div class="feature-card">
+                    <i class="fa-solid fa-code feature-icon"></i>
+                    <h3>YAZILIM & OTONOMİ</h3>
+                    <p>Python ve C++ ile görev algoritmaları, sensör füzyonu verilerinin işlenmesi ve otonom navigasyon sürüş sistemleri.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Başvuru Formu Bölümü -->
+    <section class="section apply-section" id="apply">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">TAKIM <span>BAŞVURUSU</span></h2>
+                <p style="color: var(--text-muted); font-size: 1.2rem;">TARS ekibinin bir parçası olmak için formdaki bilgileri eksiksiz doldur.</p>
+            </div>
+
+            <div class="form-container">
+                <form id="tarsApplyForm">
+                    
+                    <div class="form-group">
+                        <label for="fullname">AD SOYAD <span class="req">*</span></label>
+                        <input type="text" id="fullname" name="fullname" class="form-control" required placeholder="Kimlikteki adınız...">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">E-POSTA <span class="req">*</span></label>
+                            <input type="email" id="email" name="email" class="form-control" required placeholder="aktif.adres@mail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">TELEFON <span class="req">*</span></label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required placeholder="05XX XXX XX XX">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="university">ÜNİVERSİTE & BÖLÜM <span class="req">*</span></label>
+                        <input type="text" id="university" name="university" class="form-control" required placeholder="Örn: Türk Hava Kurumu Üniversitesi - Uçak Bakım ve Onarım">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="department">HEDEFLENEN DEPARTMAN <span class="req">*</span></label>
+                        <select id="department" name="department" class="form-control" required>
+                            <option value="" disabled selected>Lütfen bir alan seçin...</option>
+                            <option value="Mekanik Tasarım">Mekanik Tasarım ve Analiz</option>
+                            <option value="Yazılım ve Otonomi">Yazılım & Otonom Sistemler</option>
+                            <option value="Elektronik ve Donanım">Elektronik & Donanım (BMS/Sürücü)</option>
+                            <option value="Medya">Medya, 3D Render & Kurumsal İletişim</option>
+                        </select>
+                    </div>
+
+                    <!-- ============================================== -->
+                    <!-- DİNAMİK ALAN: MEKANİK - TEKNİK YETKİNLİKLER -->
+                    <!-- ============================================== -->
+                    <div class="dynamic-department-box" id="mechanicDynamicBox">
+                        <div class="dynamic-box-header">
+                            <div class="dynamic-box-title">
+                                <i class="fa-solid fa-screwdriver-wrench"></i> Mekanik - Teknik Yetkinlikler
+                            </div>
+                            <span class="dynamic-box-badge">ÖZEL BÖLÜM</span>
+                        </div>
+
+                        <!-- CAD Programı Deneyimi Sorusı -->
+                        <div class="form-group">
+                            <label>CAD PROGRAMI DENEYİMİNİZ <span class="req">*</span></label>
+                            <div class="checkbox-group" id="cadCheckboxGroup">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="cad_experience" value="SolidWorks">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">SolidWorks</span>
+                                </label>
+
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="cad_experience" value="Fusion 360">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">Fusion 360</span>
+                                </label>
+
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="cad_experience" value="AutoCAD">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">AutoCAD</span>
+                                </label>
+
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="cad_experience" value="Yok" id="cadNoneCheckbox">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">Yok</span>
+                                </label>
+
+                                <label class="checkbox-label" id="cadOtherLabel">
+                                    <input type="checkbox" name="cad_experience" value="Diğer" id="cadOtherCheckbox">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="option-text">Diğer:</span>
+                                </label>
+
+                                <div class="other-input-wrap" id="cadOtherInputWrap">
+                                    <input type="text" id="cadOtherText" class="other-input" placeholder="Kullandığınız diğer CAD programlarını yazınız (örn: CATIA, NX)...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Atölye / İmalat Deneyimi Sorusu -->
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="workshopExp">ATÖLYE/İMALAT DENEYİMİNİZ VAR MI? (CNC, 3D BASKI, KAYNAK VB.)</label>
+                            <textarea id="workshopExp" name="workshopExp" class="form-control" rows="3" placeholder="Hangi tezgahlarda veya imalat yöntemlerinde tecrübeniz var? Detaylandırabilirsiniz..."></textarea>
+                        </div>
+                    </div>
+                    <!-- ============================================== -->
+
+                    <!-- Genel Deneyim Alanı -->
+                    <div class="form-group">
+                        <label for="experience">TEKNİK YETKİNLİKLER VE PROJELER <span class="req">*</span></label>
+                        <textarea id="experience" name="experience" class="form-control" rows="5" required placeholder="Daha önce neler yaptın? Yetkin olduğun programlar ve diller neler? Linklerini (GitHub, LinkedIn) buraya ekleyebilirsin..."></textarea>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">
+                        VERİLERİ İLET <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo">TARS<span>_</span></div>
+            <p>Mülakatlar Ankara içi yüz yüze veya online olarak gerçekleştirilecektir.</p>
+            <p class="footer-credits">&copy; 2026 TARS Proje Ekibi | TEKNOFEST Başvuru Sistemi</p>
+        </div>
+    </footer>
+
+    <!-- Başvuru Başarılı Modalı -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon-wrap">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="modal-title">BAŞVURU ALINDI!</h3>
+            <p class="modal-desc">
+                TARS İnsansız Kara Aracı ekibi başvurunuz başarıyla sisteme kaydedildi. Değerlendirme süreci sonunda e-posta veya telefon ile bilgilendirileceksiniz.
+            </p>
+            <button type="button" class="btn-primary modal-btn" id="closeModalBtn">
+                TAMAM <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Sabit Admin / Excel Butonu (Sağ Altta Kolay Erişim) -->
+    <button type="button" class="admin-badge-btn" id="openAdminFloatingBtn" title="Gelen başvuruları görüntüle ve Excel olarak indir">
+        <i class="fa-solid fa-file-excel"></i>
+        <span>BAŞVURULAR (EXCEL)</span>
+        <span class="applicant-counter" id="applicantCountBadge">0</span>
+    </button>
+
+    <!-- Yönetici & Excel Dışa Aktarma Modalı -->
+    <div class="modal-overlay" id="adminModal">
+        <div class="admin-modal-content">
+            <div class="admin-modal-header">
+                <h3><i class="fa-solid fa-shield-halved" style="color: var(--primary);"></i> Başvuru Yönetimi & Excel Dışa Aktarma</h3>
+                <button type="button" class="admin-modal-close" id="closeAdminModalBtn">&times;</button>
+            </div>
+            <div class="admin-modal-body">
+                <div class="admin-toolbar">
+                    <div>
+                        <strong style="color: #fff; font-size: 1.1rem;">Toplam Başvuru: <span id="totalApplicantsCount" style="color: var(--primary);">0</span></strong>
+                        <p style="color: #888; font-size: 0.85rem; margin-top: 2px;">Tüm başvurular bu tarayıcıda yedeklenir ve tek tıkla Excel'e aktarılır.</p>
+                    </div>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <button type="button" class="btn-excel" id="exportExcelBtn">
+                            <i class="fa-solid fa-file-excel"></i> Excel (.xlsx/.csv) Olarak İndir
+                        </button>
+                        <button type="button" class="btn-clear" id="clearDataBtn" title="Test verilerini sıfırla">
+                            <i class="fa-solid fa-trash-can"></i> Temizle
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Başvuru Tablosu -->
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>TARİH</th>
+                                <th>AD SOYAD</th>
+                                <th>DEPARTMAN</th>
+                                <th>CAD YETKİNLİKLERİ</th>
+                                <th>ATÖLYE BİLGİSİ</th>
+                                <th>İLETİŞİM</th>
+                                <th>ÜNİVERSİTE</th>
+                            </tr>
+                        </thead>
+                        <tbody id="applicantTableBody">
+                            <!-- JS ile doldurulacak -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Google Sheets Webhook Entegrasyon Kutusu -->
+                <div class="webhook-settings-box">
+                    <h4><i class="fa-brands fa-google-drive" style="color: #34A853;"></i> Canlı Google E-Tablo (Google Sheets) Entegrasyonu</h4>
+                    <p>Formun her gönderildiğinde doğrudan sizin Google E-Tablonuza anında yeni satır yazması için Google Apps Script Web App URL'nizi buraya girebilirsiniz:</p>
+                    <div class="webhook-input-row">
+                        <input type="url" id="googleSheetsWebhookInput" class="form-control" style="padding: 10px 14px; font-size: 0.95rem;" placeholder="https://script.google.com/macros/s/.../exec">
+                        <button type="button" class="btn-primary" id="saveWebhookBtn" style="padding: 10px 20px; font-size: 0.85rem; white-space: nowrap;">KAYDET</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Dosyası -->
+    <script src="app.js"></script>
+</body>
+</html>
